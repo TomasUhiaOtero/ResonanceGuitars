@@ -7,6 +7,7 @@ export default function KenBurnsStack({ images, hold = 6, fade = 1.4, onReady })
   const readyRef = useRef(onReady)
   readyRef.current = onReady
   const reduced = useReducedMotion()
+  const imagesKey = images.join('|')
 
   useEffect(() => {
     const root = rootRef.current
@@ -83,7 +84,8 @@ export default function KenBurnsStack({ images, hold = 6, fade = 1.4, onReady })
       cancelled = true
       ctx?.revert()
     }
-  }, [images, hold, fade, reduced])
+    // Dependemos del contenido de `images` (imagesKey), no de su identidad: los slides se leen del DOM, así que un array recalculado con el mismo contenido no debe reiniciar el timeline.
+  }, [imagesKey, hold, fade, reduced])
 
   return (
     <div ref={rootRef} className="absolute inset-0 overflow-hidden" aria-hidden="true">
