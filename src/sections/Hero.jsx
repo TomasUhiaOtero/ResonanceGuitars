@@ -19,13 +19,14 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <section ref={scope} id="top" className="relative h-screen overflow-hidden">
+      <section ref={scope} id="top" className="relative min-h-screen overflow-hidden">
         <KenBurnsStack images={hero.slides} onReady={() => setReady(true)} />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/20 to-transparent" />
+        <div className="absolute inset-0 bg-ink/10" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 md:px-10 md:pb-20">
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 pb-14 pt-32 md:px-10 md:pb-20">
           <p
             data-overline
             className="mb-6 text-xs uppercase tracking-[0.3em] text-amber opacity-0"
@@ -33,7 +34,7 @@ export default function Hero() {
             {hero.overline}
           </p>
 
-          <h1 className="max-w-[16ch] text-[clamp(3rem,11vw,10rem)]">
+          <h1 className="max-w-[16ch] text-[clamp(2.75rem,8vw,7.5rem)]">
             <SplitText text={hero.title} />
           </h1>
 
@@ -60,7 +61,7 @@ export default function Hero() {
                 </a>
               </div>
 
-              <dl data-stats className="mt-12 flex gap-10 opacity-0">
+              <dl data-stats className="mt-10 flex gap-10 opacity-0">
                 {hero.stats.map((stat) => (
                   <div key={stat.label}>
                     <dt className="text-3xl font-semibold tracking-tight md:text-4xl">

@@ -12,7 +12,7 @@ const site = {
     body: 'Doce meses de secado, ochenta y tres piezas y una sola persona firmando cada instrumento. Guitarras construidas para durar más que quien las toca.',
     primaryCta: 'Descubrir la colección',
     secondaryCta: 'Ver el taller',
-    slides: ['/hero/01.jpg', '/hero/02.jpg', '/hero/03.jpg', '/hero/04.jpg'],
+    slides: ['/hero/02.jpg', '/hero/03.jpg', '/hero/01.jpg', '/hero/04.jpg'],
     stats: [
       { value: 83, suffix: '', label: 'Piezas por guitarra' },
       { value: 240, suffix: 'h', label: 'De trabajo manual' },
