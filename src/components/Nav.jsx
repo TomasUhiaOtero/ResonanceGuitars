@@ -2,13 +2,17 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import site from '../data/site.js'
+import useReducedMotion from '../hooks/useReducedMotion.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Nav() {
   const ref = useRef(null)
+  const reduced = useReducedMotion()
 
   useEffect(() => {
+    if (reduced) return
+
     const ctx = gsap.context(() => {
       // Al bajar, la píldora se encoge y se oscurece.
       gsap.to('[data-pill]', {
@@ -22,7 +26,7 @@ export default function Nav() {
     // ctx.revert() mata solo los triggers creados aquí dentro. No usar
     // ScrollTrigger.getAll() en el cleanup: mataría los de otras secciones.
     return () => ctx.revert()
-  }, [])
+  }, [reduced])
 
   return (
     <header

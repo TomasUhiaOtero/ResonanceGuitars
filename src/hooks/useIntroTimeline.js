@@ -48,7 +48,7 @@ export default function useIntroTimeline({ scope, ready }) {
           .fromTo('[data-overline]', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.35)
           .fromTo(
             '[data-word]',
-            { yPercent: 110 },
+            { yPercent: 135 },
             { yPercent: 0, duration: 1.1, stagger: 0.07 },
             0.45,
           )

@@ -14,15 +14,17 @@ export default function App() {
   useLenis(!reduced)
 
   return (
-    <main>
+    <>
       <Nav />
-      <Hero />
-      <SeriesMarquee />
-      <Showcase />
-      <Specs />
-      <Gallery />
-      <FinalCTA />
+      <main>
+        <Hero />
+        <SeriesMarquee />
+        <Showcase />
+        <Specs />
+        <Gallery />
+        <FinalCTA />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }

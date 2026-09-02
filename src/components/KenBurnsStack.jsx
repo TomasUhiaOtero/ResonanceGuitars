@@ -20,14 +20,37 @@ export default function KenBurnsStack({ images, hold = 6, fade = 1.4, onReady })
     let ctx
     let cancelled = false
 
-    const decodeAll = Promise.all(
-      slides.map((img) => (img.decode ? img.decode().catch(() => {}) : Promise.resolve())),
-    )
+    // Solo la primera imagen se ve durante los primeros `hold` segundos:
+    // esperar a las cuatro retrasa la entrada sin motivo. Y el timeout
+    // existe porque img.decode() puede quedarse pendiente para siempre
+    // (no rechaza), y una cortina que no se levanta deja la pagina inservible.
+    const first = slides[0]
+    const decodeFirst =
+      first && first.decode ? first.decode().catch(() => {}) : Promise.resolve()
+
+    let decodeTimer
+    const decodeAll = Promise.race([
+      decodeFirst,
+      new Promise((resolve) => {
+        decodeTimer = setTimeout(resolve, 2000)
+      }),
+    ])
+
+    // Las demas siguen decodificando en paralelo, sin bloquear la entrada.
+    slides.slice(1).forEach((img) => img.decode && img.decode().catch(() => {}))
 
     decodeAll.then(() => {
       if (cancelled) return
 
       if (reduced) {
+        ctx = gsap.context(() => {
+          gsap.set(slides[0], { opacity: 1 })
+        }, root)
+        readyRef.current?.()
+        return
+      }
+
+      if (slides.length < 2) {
         ctx = gsap.context(() => {
           gsap.set(slides[0], { opacity: 1 })
         }, root)
@@ -87,6 +110,7 @@ export default function KenBurnsStack({ images, hold = 6, fade = 1.4, onReady })
 
     return () => {
       cancelled = true
+      clearTimeout(decodeTimer)
       ctx?.revert()
     }
     // Dependemos del contenido de `images` (imagesKey), no de su identidad: los slides se leen del DOM, así que un array recalculado con el mismo contenido no debe reiniciar el timeline.

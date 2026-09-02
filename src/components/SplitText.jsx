@@ -10,7 +10,7 @@ export default function SplitText({ text, className = '' }) {
           {line.split(' ').map((word, wi) => (
             <Fragment key={wi}>
               {wi > 0 ? ' ' : null}
-              <span className="inline-block overflow-hidden align-bottom">
+              <span className="inline-block overflow-hidden align-bottom pb-[0.2em] -mb-[0.2em]">
                 <span data-word className="inline-block will-change-transform">
                   {word}
                 </span>

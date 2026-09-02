@@ -22,7 +22,7 @@ export default function Gallery() {
             key={src}
             as="figure"
             delay={i * 0.06}
-            className={`group overflow-hidden rounded-2xl bg-surface ${SPANS[i]}`}
+            className={`group overflow-hidden rounded-2xl bg-surface ${SPANS[i] ?? 'md:col-span-1'}`}
           >
             <img
               src={src}

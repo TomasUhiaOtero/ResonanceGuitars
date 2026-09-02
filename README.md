@@ -42,9 +42,9 @@ La primera imagen del array (`hero.slides[0]`) se precarga en `index.html` con `
 
 ## Ajustar el ritmo del bucle del hero
 
-El bucle de imágenes lo gestiona el componente `KenBurnsStack` (`src/components/KenBurnsStack.jsx`), usado desde la sección del hero con dos props:
+El bucle de imágenes lo gestiona el componente `KenBurnsStack`, que admite dos props:
 
 - `hold`: segundos que cada imagen permanece a pantalla completa antes de empezar la transición a la siguiente.
 - `fade`: segundos que dura el crossfade entre una imagen y la siguiente.
 
-Para cambiar la cadencia del bucle, ajusta esos valores donde se invoca `<KenBurnsStack hold={...} fade={...} .../>` en el componente del hero.
+Sus valores por defecto están en la firma del componente (`src/components/KenBurnsStack.jsx`). Para cambiar la cadencia del bucle, sobreescríbelos pasando las props `hold` y `fade` donde se invoca `<KenBurnsStack .../>` en `src/sections/Hero.jsx`.

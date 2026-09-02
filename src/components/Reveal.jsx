@@ -14,8 +14,11 @@ export default function Reveal({ as: Tag = 'div', className = '', delay = 0, chi
     if (!el) return
 
     if (reduced) {
-      gsap.set(el, { opacity: 1, y: 0 })
-      return
+      const ctx = gsap.context(() => {
+        gsap.set(el, { opacity: 1, y: 0 })
+      }, el)
+
+      return () => ctx.revert()
     }
 
     const ctx = gsap.context(() => {
