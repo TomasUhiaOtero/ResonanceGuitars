@@ -1,6 +1,7 @@
 import Nav from './components/Nav.jsx'
 import Hero from './sections/Hero.jsx'
 import SeriesMarquee from './sections/SeriesMarquee.jsx'
+import Showcase from './sections/Showcase.jsx'
 import useLenis from './hooks/useLenis.js'
 import useReducedMotion from './hooks/useReducedMotion.js'
 
@@ -13,6 +14,7 @@ export default function App() {
       <Nav />
       <Hero />
       <SeriesMarquee />
+      <Showcase />
     </main>
   )
 }
