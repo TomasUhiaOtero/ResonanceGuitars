@@ -34,7 +34,7 @@ export default function Nav() {
         data-pill
         className="flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-2 backdrop-blur-xl"
       >
-        <a href="#top" className="px-4 text-sm font-semibold tracking-tight">
+        <a href="#top" className="px-4 text-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-amber">
           {site.brand}
         </a>
 

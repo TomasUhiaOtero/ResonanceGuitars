@@ -22,7 +22,7 @@ export default function Hero() {
       <section ref={scope} id="top" className="relative min-h-screen overflow-hidden">
         <KenBurnsStack images={hero.slides} onReady={() => setReady(true)} />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/20 to-transparent" />
         <div className="absolute inset-0 bg-ink/10" />
 
@@ -61,7 +61,7 @@ export default function Hero() {
                 </a>
               </div>
 
-              <dl data-stats className="mt-10 flex gap-10 opacity-0">
+              <dl data-stats className="mt-10 flex flex-wrap gap-x-8 gap-y-6 opacity-0">
                 {hero.stats.map((stat) => (
                   <div key={stat.label}>
                     <dt className="text-3xl font-semibold tracking-tight md:text-4xl">
