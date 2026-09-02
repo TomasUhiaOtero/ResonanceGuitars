@@ -5,9 +5,12 @@ import useReducedMotion from '../hooks/useReducedMotion.js'
 export default function KenBurnsStack({ images, hold = 6, fade = 1.4, onReady }) {
   const rootRef = useRef(null)
   const readyRef = useRef(onReady)
-  readyRef.current = onReady
   const reduced = useReducedMotion()
   const imagesKey = images.join('|')
+
+  useEffect(() => {
+    readyRef.current = onReady
+  }, [onReady])
 
   useEffect(() => {
     const root = rootRef.current
@@ -25,7 +28,9 @@ export default function KenBurnsStack({ images, hold = 6, fade = 1.4, onReady })
       if (cancelled) return
 
       if (reduced) {
-        gsap.set(slides[0], { opacity: 1 })
+        ctx = gsap.context(() => {
+          gsap.set(slides[0], { opacity: 1 })
+        }, root)
         readyRef.current?.()
         return
       }
