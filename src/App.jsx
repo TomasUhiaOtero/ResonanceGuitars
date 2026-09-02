@@ -1,3 +1,4 @@
+import Nav from './components/Nav.jsx'
 import KenBurnsStack from './components/KenBurnsStack.jsx'
 import useLenis from './hooks/useLenis.js'
 import useReducedMotion from './hooks/useReducedMotion.js'
@@ -9,6 +10,7 @@ export default function App() {
 
   return (
     <main>
+      <Nav />
       <section className="relative h-screen">
         <KenBurnsStack images={site.hero.slides} />
       </section>
