@@ -12,11 +12,12 @@ export default function Showcase() {
   const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (reduced) return
-
     const ctx = gsap.context(() => {
       const images = gsap.utils.toArray('[data-shot]')
       const panels = gsap.utils.toArray('[data-panel]')
+      // Con reduced motion no hay fundido, pero la imagen correcta
+      // tiene que seguir cambiando: si no, se ve siempre la ultima.
+      const d = reduced ? 0 : 0.5
 
       gsap.set(images, { opacity: 0 })
       gsap.set(images[0], { opacity: 1 })
@@ -28,8 +29,8 @@ export default function Showcase() {
           end: 'bottom 60%',
           onToggle: (self) => {
             if (!self.isActive) return
-            gsap.to(images, { opacity: 0, duration: 0.5, ease: 'power2.inOut' })
-            gsap.to(images[i], { opacity: 1, duration: 0.5, ease: 'power2.inOut' })
+            gsap.to(images, { opacity: 0, duration: d, ease: 'power2.inOut' })
+            gsap.to(images[i], { opacity: 1, duration: d, ease: 'power2.inOut' })
           },
         })
       })
@@ -55,7 +56,7 @@ export default function Showcase() {
                 data-shot
                 src={product.image}
                 alt={product.name}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover opacity-0"
               />
             ))}
           </div>
