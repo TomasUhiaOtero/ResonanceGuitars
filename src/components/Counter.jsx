@@ -10,8 +10,15 @@ export default function Counter({ to, suffix = '', duration = 1.4, start = true 
     const el = ref.current
     if (!el) return
 
-    if (!start || reduced) {
+    if (reduced) {
       el.textContent = `${to}${suffix}`
+      return
+    }
+
+    if (!start) {
+      // Aun no toca contar: nos quedamos en cero para que la cuenta
+      // empiece desde cero cuando llegue su momento.
+      el.textContent = `0${suffix}`
       return
     }
 

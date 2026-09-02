@@ -14,7 +14,17 @@ export default function useIntroTimeline({ scope, ready }) {
 
     // Esperamos a las fuentes: animar el título antes de que Inter cargue
     // provoca un salto de métrica a mitad de la animación.
-    document.fonts.ready.then(() => {
+    // Red de seguridad: si document.fonts.ready se rechaza o no resuelve,
+    // arrancamos igual. Una cortina que no se levanta deja la pagina inservible.
+    let timeoutId
+    const fontsSettled = Promise.race([
+      document.fonts.ready.catch(() => {}),
+      new Promise((resolve) => {
+        timeoutId = setTimeout(resolve, 1500)
+      }),
+    ])
+
+    fontsSettled.then(() => {
       if (cancelled) return
 
       ctx = gsap.context(() => {
@@ -56,6 +66,7 @@ export default function useIntroTimeline({ scope, ready }) {
 
     return () => {
       cancelled = true
+      clearTimeout(timeoutId)
       ctx?.revert()
     }
   }, [ready, scope, reduced])
