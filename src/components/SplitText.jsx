@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+
 export default function SplitText({ text, className = '' }) {
   const lines = text.split('\n')
 
@@ -6,12 +8,14 @@ export default function SplitText({ text, className = '' }) {
       {lines.map((line, li) => (
         <span key={li} className="block">
           {line.split(' ').map((word, wi) => (
-            <span key={wi} className="inline-block overflow-hidden align-bottom">
-              <span data-word className="inline-block will-change-transform">
-                {word}
-                {wi < line.split(' ').length - 1 ? ' ' : ''}
+            <Fragment key={wi}>
+              {wi > 0 ? ' ' : null}
+              <span className="inline-block overflow-hidden align-bottom">
+                <span data-word className="inline-block will-change-transform">
+                  {word}
+                </span>
               </span>
-            </span>
+            </Fragment>
           ))}
         </span>
       ))}
