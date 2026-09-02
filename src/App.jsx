@@ -2,6 +2,10 @@ import Nav from './components/Nav.jsx'
 import Hero from './sections/Hero.jsx'
 import SeriesMarquee from './sections/SeriesMarquee.jsx'
 import Showcase from './sections/Showcase.jsx'
+import Specs from './sections/Specs.jsx'
+import Gallery from './sections/Gallery.jsx'
+import FinalCTA from './sections/FinalCTA.jsx'
+import Footer from './sections/Footer.jsx'
 import useLenis from './hooks/useLenis.js'
 import useReducedMotion from './hooks/useReducedMotion.js'
 
@@ -15,6 +19,10 @@ export default function App() {
       <Hero />
       <SeriesMarquee />
       <Showcase />
+      <Specs />
+      <Gallery />
+      <FinalCTA />
+      <Footer />
     </main>
   )
 }
