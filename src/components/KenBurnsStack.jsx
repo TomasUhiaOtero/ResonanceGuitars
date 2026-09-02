@@ -70,7 +70,7 @@ export default function KenBurnsStack({ images, hold = 6, fade = 1.4, onReady })
         tl.fromTo(
           slides[0],
           { opacity: 0, scale: 1.06, xPercent: 0 },
-          { opacity: 1, duration: fade, ease: 'power1.inOut' },
+          { opacity: 1, duration: fade, ease: 'power1.inOut', immediateRender: false },
           end + step,
         )
         tl.to(slides[last], { opacity: 0, duration: fade, ease: 'power1.inOut' }, end + step)
