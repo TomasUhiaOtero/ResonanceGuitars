@@ -33,8 +33,8 @@ const taller = {
   },
 
   video: {
-    title: 'Un paseo por el taller',
-    body: 'Cuatro minutos entre virutas, barniz y guitarras a medio hacer.',
+    title: 'Un paseo por las instalaciones',
+    body: 'La pared de herramientas, la mesa de trabajo, el sitio donde nace cada guitarra.',
     poster: '/taller/tour-poster.jpg',
     src: '/taller/tour.mp4',
   },
