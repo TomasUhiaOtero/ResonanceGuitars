@@ -1,3 +1,5 @@
+import PlayButton from './PlayButton.jsx'
+
 export default function GuitarCard({ guitar }) {
   return (
     <article className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-xl">
@@ -13,6 +15,9 @@ export default function GuitarCard({ guitar }) {
           <span className="absolute left-2 top-2 rounded-full bg-[#b3341f] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#fdf1ec] shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
             Destacado
           </span>
+        )}
+        {guitar.audio && (
+          <PlayButton src={guitar.audio} label={guitar.name} className="absolute right-2 top-2" />
         )}
       </div>
 

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { categories } from '../data/catalog.js'
+import PlayButton from './PlayButton.jsx'
 
 // Carrusel "expand on hover": en desktop todos los paneles arrancan a
 // flex-1 y el que tiene el puntero (o el foco, para teclado) crece con
@@ -44,6 +45,10 @@ export default function HoverCarousel({ items }) {
               <span className="absolute left-3 top-3 rounded-full bg-[#b3341f] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#fdf1ec] shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
                 Destacado
               </span>
+            )}
+
+            {guitar.audio && (
+              <PlayButton src={guitar.audio} label={guitar.name} className="absolute right-3 top-3 z-10" />
             )}
 
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />

@@ -1,30 +1,44 @@
 // Catálogo de la página /guitarras. Aurora, Basalt y Vela son los mismos
 // modelos que aparecen en la home (site.js) — mismas fotos y precios,
 // marcados `featured` para heredar el tag rojo de la card del hero.
+// Una pista por familia, no por modelo — no hay una grabación real de
+// cada guitarra del catálogo, así que reutilizar un clip representativo
+// por categoría es más honesto que fingir 12 grabaciones distintas.
+const AUDIO_BY_CATEGORY = {
+  clasicas: '/audio/clasicas.mp3',
+  acusticas: '/audio/acusticas.mp3',
+  electroacusticas: '/audio/electroacusticas.mp3',
+  electricas: '/audio/electricas.mp3',
+}
+
 export const categories = [
   {
     slug: 'clasicas',
     name: 'Clásicas',
     description: 'Cuerdas de nylon, cajas ligeras, silencio de fondo. Para quien empieza o para quien vuelve.',
+    audio: AUDIO_BY_CATEGORY.clasicas,
   },
   {
     slug: 'acusticas',
     name: 'Acústicas',
     description: 'Cuerdas de acero y una caja que llena la habitación sin enchufar nada.',
+    audio: AUDIO_BY_CATEGORY.acusticas,
   },
   {
     slug: 'electroacusticas',
     name: 'Electroacústicas',
     description: 'El cuerpo de una acústica con la electrónica lista para subir a un escenario.',
+    audio: AUDIO_BY_CATEGORY.electroacusticas,
   },
   {
     slug: 'electricas',
     name: 'Eléctricas',
     description: 'Cuerpo sólido, pastillas, amplificador. El resto lo pones tú.',
+    audio: AUDIO_BY_CATEGORY.electricas,
   },
 ]
 
-export const guitars = [
+const rawGuitars = [
   // Clásicas
   {
     id: 'vela',
@@ -132,6 +146,11 @@ export const guitars = [
     image: '/products/guitars/electrica-03.jpg',
   },
 ]
+
+// La pista de audio se deriva de la categoría en vez de repetirla a mano
+// en cada una de las 12 guitarras — una sola fuente de verdad (el mapa de
+// arriba), cero riesgo de que un modelo se quede con el clip equivocado.
+export const guitars = rawGuitars.map((g) => ({ ...g, audio: AUDIO_BY_CATEGORY[g.category] }))
 
 // Selección para el carousel interactivo de cabecera: una por familia más
 // dos extra, en el orden en que se listan los paneles.
