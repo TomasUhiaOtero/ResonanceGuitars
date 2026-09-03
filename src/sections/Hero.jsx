@@ -47,30 +47,36 @@ export default function Hero() {
               <div className="mt-8 flex flex-wrap gap-3">
                 {/*
                   El timeline de entrada anima el elemento [data-cta] y le
-                  deja un "transform: none" puesto por inline style. Un
-                  inline style siempre gana a una regla de hover en hoja de
-                  estilos, así que un hover con scale/translate en el propio
-                  <a> jamás se vería tras la intro. Por eso el movimiento va
-                  en el <span> interior, que GSAP nunca toca; el <a> solo
-                  aporta el resplandor (box-shadow) y el color.
+                  deja un "transform: none" puesto por inline style, que
+                  ganaría a cualquier transform de hover puesto directamente
+                  en el <a>. Por eso el relleno de color vive en <span>
+                  decorativos aparte (capas apiladas con overflow-hidden +
+                  rounded-full de por medio para que se recorten a la forma
+                  de la píldora); el texto no se mueve, solo cambia lo que
+                  hay debajo.
                 */}
                 <a
                   data-cta
                   href="#"
-                  className="group rounded-full bg-bone px-7 py-3.5 text-sm font-medium text-ink opacity-0 shadow-[0_0_0_0_rgba(245,243,239,0)] transition-all duration-300 ease-out hover:bg-white hover:shadow-[0_16px_36px_-14px_rgba(245,243,239,0.65)] active:shadow-[0_6px_16px_-10px_rgba(245,243,239,0.5)] focus-visible:outline-2 focus-visible:outline-amber"
+                  className="group relative overflow-hidden rounded-full px-7 py-3.5 text-sm font-medium text-ink opacity-0 shadow-[0_0_0_0_rgba(200,135,63,0)] transition-shadow duration-300 ease-out hover:shadow-[0_16px_36px_-14px_rgba(200,135,63,0.55)] active:shadow-[0_6px_16px_-10px_rgba(200,135,63,0.45)] focus-visible:outline-2 focus-visible:outline-amber"
                 >
-                  <span className="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-0.5">
-                    {hero.primaryCta}
-                  </span>
+                  <span aria-hidden="true" className="absolute inset-0 bg-bone" />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 origin-left scale-x-0 bg-amber transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:scale-x-100"
+                  />
+                  <span className="relative">{hero.primaryCta}</span>
                 </a>
                 <a
                   data-cta
                   href="#"
-                  className="group rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium opacity-0 transition-all duration-300 ease-out hover:border-white/40 hover:bg-white/10 hover:shadow-[0_16px_36px_-16px_rgba(255,255,255,0.35)] focus-visible:outline-2 focus-visible:outline-amber"
+                  className="group relative overflow-hidden rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium opacity-0 transition-[border-color,box-shadow] duration-300 ease-out hover:border-white/40 hover:shadow-[0_16px_36px_-16px_rgba(200,135,63,0.4)] focus-visible:outline-2 focus-visible:outline-amber"
                 >
-                  <span className="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-0.5">
-                    {hero.secondaryCta}
-                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-1/2 top-1/2 aspect-square w-[220%] -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-amber/25 transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:scale-100"
+                  />
+                  <span className="relative">{hero.secondaryCta}</span>
                 </a>
               </div>
 
