@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import site from '../data/site.js'
 import useReducedMotion from '../hooks/useReducedMotion.js'
+import { scrollToTop } from '../hooks/useLenis.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -83,7 +84,20 @@ export default function Nav() {
         data-pill
         className="flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-2 backdrop-blur-xl"
       >
-        <Link to="/" className="px-4 text-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-amber">
+        <Link
+          to="/"
+          onClick={(e) => {
+            // En "/", Link a "/" es una navegación a la misma ruta: React
+            // Router no hace nada con ella. Si ya estamos en casa, el
+            // logo tiene que servir para subir al inicio en vez de
+            // quedarse sin efecto.
+            if (pathname === '/') {
+              e.preventDefault()
+              scrollToTop()
+            }
+          }}
+          className="px-4 text-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-amber"
+        >
           {site.brand}
         </Link>
 
