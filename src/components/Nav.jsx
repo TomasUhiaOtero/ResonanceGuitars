@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 const ROUTES = {
   Guitarras: '/guitarras',
   Taller: '/taller',
+  Soporte: '/soporte',
 }
 
 export default function Nav() {

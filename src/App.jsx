@@ -5,6 +5,7 @@ import Footer from './sections/Footer.jsx'
 import Home from './pages/Home.jsx'
 import Guitarras from './pages/Guitarras.jsx'
 import Taller from './pages/Taller.jsx'
+import Soporte from './pages/Soporte.jsx'
 import useLenis from './hooks/useLenis.js'
 import useReducedMotion from './hooks/useReducedMotion.js'
 
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/guitarras" element={<Guitarras />} />
         <Route path="/taller" element={<Taller />} />
+        <Route path="/soporte" element={<Soporte />} />
       </Routes>
       <Footer />
     </BrowserRouter>
