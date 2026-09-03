@@ -31,7 +31,7 @@ export default function useIntroTimeline({ scope, ready }) {
         if (reduced) {
           gsap.set('[data-curtain]', { display: 'none' })
           gsap.to(
-            ['[data-nav]', '[data-overline]', '[data-word]', '[data-body]', '[data-cta]', '[data-stats]', '[data-card]'],
+            ['[data-overline]', '[data-word]', '[data-body]', '[data-cta]', '[data-stats]', '[data-card]'],
             { opacity: 1, duration: 0.3, onComplete: () => setDone(true) },
           )
           return
@@ -44,7 +44,6 @@ export default function useIntroTimeline({ scope, ready }) {
 
         tl.to('[data-curtain]', { opacity: 0, duration: 0.6, ease: 'power2.inOut' }, 0)
           .set('[data-curtain]', { display: 'none' })
-          .fromTo('[data-nav]', { y: -24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.2)
           .fromTo('[data-overline]', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.35)
           .fromTo(
             '[data-word]',
