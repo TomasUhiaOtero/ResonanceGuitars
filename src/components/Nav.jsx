@@ -4,7 +4,6 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import site from '../data/site.js'
 import useReducedMotion from '../hooks/useReducedMotion.js'
-import { scrollToTop } from '../hooks/useLenis.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -88,12 +87,13 @@ export default function Nav() {
           to="/"
           onClick={(e) => {
             // En "/", Link a "/" es una navegación a la misma ruta: React
-            // Router no hace nada con ella. Si ya estamos en casa, el
-            // logo tiene que servir para subir al inicio en vez de
-            // quedarse sin efecto.
+            // Router no hace nada con ella y el logo parece muerto. Desde
+            // otra página, ir a "/" ya remonta Home entera (animaciones de
+            // entrada de cero, scroll a 0); estando ya en casa, la única
+            // forma de dar exactamente ese mismo efecto es una recarga real.
             if (pathname === '/') {
               e.preventDefault()
-              scrollToTop()
+              window.location.reload()
             }
           }}
           className="px-4 text-sm font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-amber"
