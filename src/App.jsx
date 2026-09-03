@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx'
 import Guitarras from './pages/Guitarras.jsx'
 import Taller from './pages/Taller.jsx'
 import Soporte from './pages/Soporte.jsx'
+import Afinador from './pages/Afinador.jsx'
 import useLenis from './hooks/useLenis.js'
 import useReducedMotion from './hooks/useReducedMotion.js'
 
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/guitarras" element={<Guitarras />} />
         <Route path="/taller" element={<Taller />} />
         <Route path="/soporte" element={<Soporte />} />
+        <Route path="/afinador" element={<Afinador />} />
       </Routes>
       <Footer />
     </BrowserRouter>

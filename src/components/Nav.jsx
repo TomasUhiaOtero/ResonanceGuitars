@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 // se queda como ancla de la home (fuera del alcance de este cambio).
 const ROUTES = {
   Guitarras: '/guitarras',
+  Afinador: '/afinador',
   Taller: '/taller',
   Soporte: '/soporte',
 }

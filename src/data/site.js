@@ -29,6 +29,33 @@ const site = {
 
   woods: ['Palosanto', 'Abeto', 'Nogal', 'Cedro', 'Ébano', 'Arce'],
 
+  products: [
+    {
+      id: 'aurora',
+      eyebrow: 'Eléctrica',
+      name: 'Aurora',
+      body: 'Cuerpo hueco de aliso y pastillas bobinadas a mano. Suena limpia a bajo volumen y se rompe con elegancia cuando aprietas.',
+      image: '/products/01.jpg',
+      price: '4.290 €',
+    },
+    {
+      id: 'basalt',
+      eyebrow: 'Acústica',
+      name: 'Basalt',
+      body: 'Palosanto de la India y tapa de abeto Sitka. Grave profundo, agudos que no cortan. Pensada para grabar sin ecualizar.',
+      image: '/products/02.jpg',
+      price: '3.750 €',
+    },
+    {
+      id: 'vela',
+      eyebrow: 'Clásica',
+      name: 'Vela',
+      body: 'Cedro macizo, abanico tradicional de siete varetas y un mástil que desaparece bajo la mano. La más silenciosa de tocar.',
+      image: '/products/03.jpg',
+      price: '5.100 €',
+    },
+  ],
+
   specs: {
     title: 'Números que no se ven en la foto',
     items: [
