@@ -4,6 +4,7 @@ import Nav from './components/Nav.jsx'
 import Footer from './sections/Footer.jsx'
 import Home from './pages/Home.jsx'
 import Guitarras from './pages/Guitarras.jsx'
+import Taller from './pages/Taller.jsx'
 import useLenis from './hooks/useLenis.js'
 import useReducedMotion from './hooks/useReducedMotion.js'
 
@@ -29,6 +30,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/guitarras" element={<Guitarras />} />
+        <Route path="/taller" element={<Taller />} />
       </Routes>
       <Footer />
     </BrowserRouter>
