@@ -22,11 +22,16 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  letter-spacing: -0.03em;
-  line-height: 0.95;
-  font-weight: 600;
-  margin: 0;
+/* En capa `base`: si esta regla queda sin capa, gana a CUALQUIER utilidad
+   de Tailwind (incluida mx-auto) sin importar especificidad, porque las
+   reglas sin capa siempre superan a las que sí tienen capa. */
+@layer base {
+  h1, h2, h3 {
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    font-weight: 600;
+    margin: 0;
+  }
 }
 
 ::selection {

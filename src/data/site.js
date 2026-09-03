@@ -23,10 +23,11 @@ const site = {
       name: 'Aurora Custom',
       note: 'Tapa de abeto alpino, 2026',
       price: '4.290 €',
+      tag: 'Destacado',
     },
   },
 
-  series: ['Aurora', 'Basalt', 'Vela', 'Nocturne', 'Cedar', 'Meridian'],
+  woods: ['Palosanto', 'Abeto', 'Nogal', 'Cedro', 'Ébano', 'Arce'],
 
   products: [
     {

@@ -33,7 +33,7 @@ export default function Specs() {
         <dl className="mt-20 grid grid-cols-2 gap-12 lg:grid-cols-4">
           {site.specs.items.map((item, i) => (
             <Reveal key={item.label} as="div" delay={i * 0.08}>
-              <dt className="text-[clamp(3rem,7vw,6rem)] font-semibold tracking-tight">
+              <dt className="whitespace-nowrap text-[clamp(3rem,7vw,6rem)] font-semibold tracking-tight">
                 <Counter to={item.value} suffix={item.suffix} start={started} />
               </dt>
               <dd className="mt-2 text-sm text-mute">{item.label}</dd>

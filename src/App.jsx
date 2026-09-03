@@ -1,6 +1,6 @@
 import Nav from './components/Nav.jsx'
 import Hero from './sections/Hero.jsx'
-import SeriesMarquee from './sections/SeriesMarquee.jsx'
+import WoodsMarquee from './sections/WoodsMarquee.jsx'
 import Showcase from './sections/Showcase.jsx'
 import Specs from './sections/Specs.jsx'
 import Gallery from './sections/Gallery.jsx'
@@ -18,7 +18,7 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <SeriesMarquee />
+        <WoodsMarquee />
         <Showcase />
         <Specs />
         <Gallery />
