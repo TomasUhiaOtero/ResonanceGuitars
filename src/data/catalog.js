@@ -4,6 +4,9 @@
 // Una pista por familia, no por modelo — no hay una grabación real de
 // cada guitarra del catálogo, así que reutilizar un clip representativo
 // por categoría es más honesto que fingir 12 grabaciones distintas.
+// Cada clip suena al instrumento real de su familia (nylon español en
+// clásicas, acero en acústicas/electroacústicas, amplificada en
+// eléctricas) — no solo un guitarrazo genérico da igual la categoría.
 const AUDIO_BY_CATEGORY = {
   clasicas: '/audio/clasicas.mp3',
   acusticas: '/audio/acusticas.mp3',
